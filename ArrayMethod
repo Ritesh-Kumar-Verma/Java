@@ -1,0 +1,88 @@
+
+
+
+import java.util.Scanner;
+
+class ArrayMethod{
+    
+    public static void main(String args[]){
+
+        
+
+    
+        int ar[]=createArray();
+        printArray(ar);
+        selectionSort(ar);
+            
+    }
+    /************************************************************************************* */
+
+    public static int [] createArray(){
+
+        Scanner in=new Scanner(System.in);
+
+        System.out.print("Enter the size of array: ");
+        int size =in.nextInt();       
+
+        int ar[] = new int [size];
+
+        System.out.print("Enter elements of array: ");
+        for(int i=0;i<size;i++){
+
+            
+            ar[i]=in.nextInt();
+            
+        }
+        return ar;
+
+        
+    }
+
+
+
+
+
+    /************************************************************************************* */
+    public static int min(int [] ar,int c){
+        int minPos=0;
+        int l=ar.length;
+        for (int i=c;i<l;i++){
+            if(ar[i]<ar[minPos]){
+                minPos=i;
+            }
+        }
+        return minPos;
+    }
+    /************************************************************************************* */
+    public static void printArray(int [] ar){
+        int l=ar.length;
+        System.out.print("{ ");
+        for(int i =0;i<l;i++){
+            System.out.print(ar[i]+" ");
+        }
+        System.out.print(" }\n");
+
+    }
+    /************************************************************************************ */
+    public static void selectionSort(int [] ar){
+        
+        for(int i=0;i<ar.length;i++){
+
+            for(int j=i+1;j<ar.length;j++){
+
+                if(ar[i]>ar[j]){
+                    int t=ar[j];
+                    ar[j]=ar[i];
+                    ar[i]=t;
+                }
+            }
+        }  
+        System.out.print("Sorted array is: ");
+        printArray(ar);
+        
+    }
+    /************************************************************************************ */
+
+
+    
+}
